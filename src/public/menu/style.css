@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  
+    user-select: none;
+    font-family: Sans-Serif;
+    background-color: #000000;
+}
+
+h1 {
+    margin-left: 5%;
+    color: #00ff00;
+}
+
+p {
+    color: #ffffff
+}
+
+.options {
+  display: flex;
+}
+
+.id {
+    margin-left: 5%;
+}
+
+.name {
+    margin-left: 1%;
+}
+
+.price {
+    margin-left: 50%;
+    margin-right: 10%;
+}
+
+.view_button {
+    cursor: pointer;
+    margin-right: 1%;
+    margin-top: 6px;
+    border: none;
+    border-radius: 10px;
+    font-family: sans-serif;
+    font-weight: bold;
+    height: 35px;
+    width: 75px;
+}
+
+.right {
+    position: absolute;
+    right: 0;
+}
