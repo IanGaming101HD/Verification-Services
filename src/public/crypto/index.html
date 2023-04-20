@@ -9,12 +9,23 @@
 
 <body>
   <div class='container'>
-    <p>Choose your crypto</p>
-    <button>USDT (ERC20)</button>
-    <button>ETH</button>
-    <button>BTC</button>
-    <button>SOL</button>
+    <div id='menu_container' class='menu_container'>
+      <h1>Choose your crypto</h1>
+      <div class='options_container'>
+        <button id='usdt_button' class='option'>USDT (ERC20)</button>
+        <button id='eth_button' class='option'>ETH</button>
+        <button id='btc_button' class='option'>BTC</button>
+        <button id='sol_button' class='option'>SOL</button>
+      </div>
+    </div>
+    <div id='option_container' class='option_container' hidden>
+      <h1>$currency</h1>
+      <h2>We've created a new<br>wallet for your new account!</h2>
+      <p>Send to this wallet</p>
+      <h3>$wallet</h3>
+    </div>
   </div>
+  <script src='script.js'></script>
 </body>
 
 </html>

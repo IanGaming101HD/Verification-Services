@@ -12,35 +12,15 @@ let createWindow = () => {
     height: 400,
     icon: './src/icon.png',
     autoHideMenuBar: true,
-    // fullscreen: true,
     resizable: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      devTools: false,
+      devTools: false
     }
   })
-  ipcMain.handle('newWindow2', (event) => newWindow())
-  ipcMain.handle('newWindow', (event, width, height) => new BrowserWindow({ width: width, height: height, icon: './src/icon.png', autoHideMenuBar: true, resizable: false, webPreferences: { preload: path.join(__dirname, 'preload.js') }}))
+  ipcMain.handle('changeWindowSize', (event, width, height) => win.setSize(width, height))
   ipcMain.handle('logins', () => logins)
   win.loadFile('./public/login/index.html')
-}
-
-let newWindow = () => {
-  let win = new BrowserWindow({
-    width: 1000,
-    height: 600,
-    icon: './src/icon.png',
-    autoHideMenuBar: true,
-    // fullscreen: true,
-    resizable: false,
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-      devTools: false,
-    }
-  })
-  ipcMain.handle('newWindow', (event, width, height) => new BrowserWindow({ width: width, height: height, icon: './src/icon.png', autoHideMenuBar: true, resizable: false, webPreferences: { preload: path.join(__dirname, 'preload.js') }}))
-  ipcMain.handle('logins', () => logins)
-  win.loadFile('./public/menu/index.html')
 }
 
 app.once('ready', () => {
