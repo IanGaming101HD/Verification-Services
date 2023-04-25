@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Verification Services</title>
+  <meta charset='UTF-8' />
+  <link rel='stylesheet' href='./style.css'>
+</head>
+
+<body>
+  <div class='container'>
+    <form>
+      <label class='white' for='service'>Service</label>
+      <br>
+      <select id='service' class='service' name='service'>
+        <option value='instagram'>Instagram Verification (NOT META!)</option>
+        <option value='twitter_legacy'>Twitter Legacy Verified Badge (CHEAPEST!!!!)</option>
+        <option value='twitter_business'>Facebook Profile Verification (Not meta)</option>
+        <option value='facebook'>TikTok Profile Verification</option>
+        <option value='tiktok'>Telegram Verification Badge (Any profile/page)</option>
+        <option value='telegram'>YouTube Verification Badge</option>
+        <option value='youtube'>YouTube Artist Badge</option>
+        <option value='vkverification'>VKVerification Badge (Need login for this, raise a ticket)</option>
+        <option value='meta'>Meta Verifications (Must read the description!)</option>
+      </select>
+      <br>
+      <label class='white' for='description'>Description</label>
+      <br>
+      <input id='description' class='description input_box' type='text' disabled>
+      <br>
+      <label class='white' for='link'>Link</label>
+      <br>
+      <input id='link' class='input_box' type='text' required>
+      <br>
+      <label class='white' for='quantity'>Quantity</label>
+      <br>
+      <input id='quantity' class='input_box' type='text' required>
+      <br>
+      <label class='white' for='charge'>Charge</label>
+      <br>
+      <input id='charge' class='input_box' type='text' disabled>
+      <br>
+      <p class='white'>Mix: 1 - Max: 1</p>
+      <br>
+      <input id='submit_btn' class='submit_btn white' type='submit' value='Submit'>
+    </form>
+  </div>
+  <script src='./script.js'></script>
+</body>
+
+</html>

@@ -2,14 +2,15 @@ const path = require('path')
 const {
   app,
   BrowserWindow,
-  ipcMain
+  ipcMain,
+  clipboard
 } = require('electron');
 const logins = require('./logins.json')
 
 let createWindow = () => {
   let win = new BrowserWindow({
-    width: 500,
-    height: 400,
+    width: 450,
+    height: 310,
     icon: './src/icon.png',
     autoHideMenuBar: true,
     resizable: false,
@@ -19,8 +20,9 @@ let createWindow = () => {
     }
   })
   ipcMain.handle('changeWindowSize', (event, width, height) => win.setSize(width, height))
+  ipcMain.handle('copyToClipboard', (event, value) => clipboard.writeText(value))
   ipcMain.handle('logins', () => logins)
-  win.loadFile('./public/login/index.html')
+  win.loadFile('./src/public/login/index.html')
 }
 
 app.once('ready', () => {

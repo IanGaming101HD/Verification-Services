@@ -10,8 +10,8 @@ usdtButton.addEventListener('click', async (e) => {
     menuContainer.hidden = true
     optionContainer.hidden = false
 
-    document.body.innerHTML = document.body.innerHTML.replace(/$currency/g, usdtButton.innerText);
-    document.body.innerHTML = document.body.innerHTML.replace(/$wallet/g, 'Wallet');
+    document.body.innerHTML = document.body.innerHTML.replace('$currency', usdtButton.innerText);
+    document.body.innerHTML = document.body.innerHTML.replace('$wallet', '0x43f039b254072E6Beb1A660B024241aA8ADcA1d9');
 })
 
 ethButton.addEventListener('click', async (e) => {
@@ -21,8 +21,8 @@ ethButton.addEventListener('click', async (e) => {
     menuContainer.hidden = true
     optionContainer.hidden = false
 
-    document.body.innerHTML = document.body.innerHTML.replace(/$currency/g, usdtButton.innerText);
-    document.body.innerHTML = document.body.innerHTML.replace(/$wallet/g, 'Wallet');
+    document.body.innerHTML = document.body.innerHTML.replace('$currency', usdtButton.innerText);
+    document.body.innerHTML = document.body.innerHTML.replace('$wallet', '0x43f039b254072E6Beb1A660B024241aA8ADcA1d9');
 })
 
 btcButton.addEventListener('click', async (e) => {
@@ -32,8 +32,8 @@ btcButton.addEventListener('click', async (e) => {
     menuContainer.hidden = true
     optionContainer.hidden = false
 
-    document.body.innerHTML = document.body.innerHTML.replace(/$currency/g, usdtButton.innerText);
-    document.body.innerHTML = document.body.innerHTML.replace(/$wallet/g, 'Wallet');
+    document.body.innerHTML = document.body.innerHTML.replace('$currency', usdtButton.innerText);
+    document.body.innerHTML = document.body.innerHTML.replace('$wallet', '0x43f039b254072E6Beb1A660B024241aA8ADcA1d9');
 })
 
 solButton.addEventListener('click', async (e) => {
@@ -43,6 +43,6 @@ solButton.addEventListener('click', async (e) => {
     menuContainer.hidden = true
     optionContainer.hidden = false
 
-    document.body.innerHTML = document.body.innerHTML.replace(/$currency/g, usdtButton.innerText);
-    document.body.innerHTML = document.body.innerHTML.replace(/$wallet/g, 'Wallet');
+    document.body.innerHTML = document.body.innerHTML.replace('$currency', usdtButton.innerText);
+    document.body.innerHTML = document.body.innerHTML.replace('$wallet', '0x43f039b254072E6Beb1A660B024241aA8ADcA1d9');
 })

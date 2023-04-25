@@ -4,20 +4,29 @@
 <head>
   <title>Verification Services</title>
   <meta charset='UTF-8' />
-  <link rel='stylesheet' href='style.css'>
+  <link rel='stylesheet' href='./style.css'>
 </head>
 
 <body>
   <div class='container'>
-    <label for='text'>Username:</label>
-    <input id='username' class='input_box' type='text'>
-    <label for='password'>Password:</label>
-    <input id='password' class='input_box' type='password'>
-    <p id='red_text' class='red_text' hidden>Login or password is invalid.</p>
-    <br>
-    <input id='submit_btn' class='submit_btn' type='submit' value='Login'>
+    <form>
+      <label class='white' for='text'>Username:</label>
+      <br>
+      <input id='username' class='input_box username_field' type='text' required>
+      <br>
+      <label class='white' for='password'>Password:</label>
+      <br>
+      <input id='password' class='input_box password_field' type='password' required>
+      <br>
+      <input id='checkbox' class='checkbox' type='checkbox' name='checkbox'>
+      <label for='checkbox' class='white'>Remember me</label>
+      <br>
+      <input id='signin_btn' class='submit_btn white' type='submit' value='Sign in'>
+      <br>
+      <p class='white'>Do not have an account?<a id='signup'>Sign up</a></p>
+    </form>
   </div>
-  <script src='script.js'></script>
+  <script src='./script.js'></script>
 </body>
 
 </html>

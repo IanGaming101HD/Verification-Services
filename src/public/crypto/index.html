@@ -22,10 +22,20 @@
       <h1>$currency</h1>
       <h2>We've created a new<br>wallet for your new account!</h2>
       <p>Send to this wallet</p>
-      <h3>$wallet</h3>
+      <h3 id='wallet'>$wallet</h3>
+      <a id='copy_clipboard' onclick='copyToClipboard()'>Copy to clipboard</a>
+      <script>
+        async function copyToClipboard() {
+          let copyClipboard = document.getElementById('copy_clipboard')
+          navigator.clipboard.writeText(wallet.innerText);
+    
+          copyClipboard.innerText = 'Copied'
+          setTimeout(() => copyClipboard.innerText = 'copy to clipboard', 3000)
+        }
+      </script>
     </div>
   </div>
-  <script src='script.js'></script>
+  <script type='module' src='script.js'></script>
 </body>
 
 </html>

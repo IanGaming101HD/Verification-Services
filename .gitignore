@@ -2,3 +2,4 @@ node_modules
 main-linux
 main-macos
 main-win.exe
+dist
