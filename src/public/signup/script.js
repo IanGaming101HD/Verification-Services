@@ -38,5 +38,5 @@ tos.addEventListener('click', async (e) => {
 })
 
 signin.addEventListener('click', async (e) => {
-    await electron.changeWindowSize(425, 425)
+    await electron.changeWindowSize(450, 310)
 })

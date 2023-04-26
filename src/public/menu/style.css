@@ -71,18 +71,19 @@ h2 {
     top: 1%;
     font-size: 20px;
     color: #d9e2e8;
-    left: 92%;
+    left: 93%;
     border: none;
     background-color: transparent;
 }
 
 .popup_name {
-    font-size: 30px;
+    font-size: 27.5px;
+    width: 90%;
     margin-left: 5%;
 }
 
 .popup_description {
-    margin-top: -5%;
+    margin-top: -2%;
     width: 90%;
     font-size: 15px;
     margin-left: 5%;

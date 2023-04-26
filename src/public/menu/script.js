@@ -1,6 +1,49 @@
+const container = document.getElementsByClassName('container')[0]
+const services = await electron.services
+
+services.forEach(function(service) {
+    let div = document.createElement('div');
+    container.appendChild(div);
+    div.classList.add('options')
+
+    let id = document.createElement('p')
+    let name = document.createElement('p')
+    let description = document.createElement('p')
+    let price = document.createElement('p')
+    let viewButton = document.createElement('button')
+    
+    div.appendChild(id);
+    div.appendChild(name);
+    div.appendChild(description);
+    div.appendChild(price);
+    div.appendChild(viewButton);
+
+    [id, name, description, price].forEach(function(element) {
+        element.classList.add('info')
+    })
+    id.classList.add('id')
+    name.classList.add('name')
+    description.classList.add('description')
+    price.classList.add('price')
+    viewButton.classList.add('view_button')
+
+    price.classList.add('right')
+    viewButton.classList.add('right')
+
+    id.innerText = service.id
+    name.innerText = service.name
+    description.innerText = service.description
+    // description.innerHTML = service.description
+    price.innerText = `${service.price.toFixed(2)} €`
+    viewButton.innerText = 'View'
+
+    description.hidden = true
+})
+
 const viewButtons = document.getElementsByClassName('view_button')
 const closeButton = document.getElementById('close_button')
 const orderButton = document.getElementById('order_btn')
+
 
 Array.from(viewButtons).forEach(function (viewButton) {
     viewButton.addEventListener('click', function () {
@@ -27,5 +70,8 @@ closeButton.addEventListener('click', function () {
 
 orderButton.addEventListener('click', async function () {
     location.href = '../order/index.html'
-    await electron.changeWindowSize(1000, 850)
+    // await electron.changeWindowSize(600, 725)
+    await electron.changeWindowSize(600, 800)
+
+    setService(7)
 })

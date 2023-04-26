@@ -6,6 +6,7 @@ const {
   clipboard
 } = require('electron');
 const logins = require('./logins.json')
+const services = require('./services.json')
 
 let createWindow = () => {
   let win = new BrowserWindow({
@@ -13,7 +14,7 @@ let createWindow = () => {
     height: 310,
     icon: './src/icon.png',
     autoHideMenuBar: true,
-    resizable: false,
+    // resizable: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       devTools: false
@@ -22,6 +23,7 @@ let createWindow = () => {
   ipcMain.handle('changeWindowSize', (event, width, height) => win.setSize(width, height))
   ipcMain.handle('copyToClipboard', (event, value) => clipboard.writeText(value))
   ipcMain.handle('logins', () => logins)
+  ipcMain.handle('services', () => services)
   win.loadFile('./src/public/login/index.html')
 }
 

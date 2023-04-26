@@ -1,20 +1,80 @@
-const signinButton = document.getElementById('signin_btn')
-const signup = document.getElementById('signup')
+const services = await electron.services
 
-signup.href = '../signup/index.html'
+services.forEach(async function (service) {
+    let options = document.getElementById('service')
 
-signinButton.addEventListener('click', async (event) => {
+    let option = document.createElement('option')
+    options.appendChild(option)
+
+    if (service.name.split(' ')[0].toLowerCase() === 'twitter') {
+        option.value = `${service.name.split(' ')[0].toLowerCase()}_${service.name.split(' ')[1].toLowerCase()}`
+    } else {
+        option.value = service.name.split(' ')[0].toLowerCase()
+    }
+    option.innerText = service.name
+})
+
+const serviceOptions = document.getElementById('service')
+const submitButton = document.getElementById('submit_btn')
+const closeButton = document.getElementById('close_button')
+
+function setService(index) {
+    let description = document.getElementById('description')
+    let charge = document.getElementById('charge')
+    let quantity = document.getElementById('quantity')
+
+    description.disabled = false
+    charge.disabled = false
+
+    description.value = services[index].description
+    charge.value = `${services[index].price.toFixed(2)} €`
+    quantity.value = ''
+
+    description.disabled = true
+    charge.disabled = true
+}
+setService(0)
+
+serviceOptions.addEventListener('change', function () {
+    let index = serviceOptions.selectedIndex;
+    setService(index)
+})
+
+submitButton.addEventListener('click', async (event) => {
     event.preventDefault()
 
-    let username = document.getElementById('username').value
-    let password = document.getElementById('password').value
+    let link = document.getElementById('link')
+    let quantity = document.getElementById('quantity')
 
-    if ((await electron.logins).find((user) => user.username === username.toLowerCase() && user.password === password)) {
-        location.href = '../menu/index.html'
-        await electron.changeWindowSize(1000, 600)
+    if (link.value && quantity.value) {
+        let popupContainer = document.getElementsByClassName('popup_container')[0]
+        let msg = document.getElementById('msg')
+        let regex = /^(http|https):\/\/[a-z0-9\-]+\.[a-z]{2,}[^\s]*$/i;
+
+        popupContainer.hidden = false
+
+        if (regex.test(link.value)) {
+            msg.innerText = 'Enter a valid link'
+        } else if (isNaN(quantity.value) || quantity.value.includes('.') || parseInt(quantity.value) <= 0) {
+            msg.innerText = 'Enter a valid amount for quantity'
+        } else {
+            msg.innerText = 'Not enough funds on balance'
+        }
     }
 })
 
-signup.addEventListener('click', async (e) => {
-    await electron.changeWindowSize(450, 450)
+closeButton.addEventListener('click', function () {
+    let popupContainer = document.getElementsByClassName('popup_container')[0]
+    popupContainer.hidden = true;
 })
+
+let quantity = document.getElementById('quantity')
+
+quantity.addEventListener('input', (event) => {
+    let charge = document.getElementById('charge')
+    let index = serviceOptions.selectedIndex;
+    
+    charge.value = `${services[index].price.toFixed(2)} €`
+})
+
+export { setService }
