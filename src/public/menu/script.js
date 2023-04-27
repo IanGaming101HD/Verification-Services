@@ -70,8 +70,7 @@ closeButton.addEventListener('click', function () {
 
 orderButton.addEventListener('click', async function () {
     location.href = '../order/index.html'
-    // await electron.changeWindowSize(600, 725)
-    await electron.changeWindowSize(600, 800)
+    await electron.centreWindow()
 
     setService(7)
 })

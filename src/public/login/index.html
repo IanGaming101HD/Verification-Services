@@ -9,6 +9,12 @@
 
 <body>
   <div class='container'>
+    <div class='popup_container' hidden>
+      <div class='msg_container'>
+        <p id='msg' class='msg'>Incorrect username or password</p>
+        <button id='close_button' class='close_button'>✖</button>
+      </div>
+    </div>
     <form>
       <label class='white' for='text'>Username:</label>
       <br>
@@ -26,7 +32,7 @@
       <p class='white'>Do not have an account?<a id='signup'>Sign up</a></p>
     </form>
   </div>
-  <script src='./script.js'></script>
+  <script type='module' src='./script.js'></script>
 </body>
 
 </html>

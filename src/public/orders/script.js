@@ -20,13 +20,18 @@ const closeButton = document.getElementById('close_button')
 
 function setService(index) {
     let description = document.getElementById('description')
+    let charge = document.getElementById('charge')
     let quantity = document.getElementById('quantity')
 
     description.disabled = false
-    description.value = services[index].description
-    description.disabled = true
+    charge.disabled = false
 
+    description.value = services[index].description
+    charge.value = `${services[index].price.toFixed(2)} €`
     quantity.value = ''
+
+    description.disabled = true
+    charge.disabled = true
 }
 setService(0)
 
@@ -40,11 +45,13 @@ submitButton.addEventListener('click', async (event) => {
 
     let link = document.getElementById('link')
     let quantity = document.getElementById('quantity')
-    let popupContainer = document.getElementsByClassName('popup_container')[0]
 
     if (link.value && quantity.value) {
+        let popupContainer = document.getElementsByClassName('popup_container')[0]
         let msg = document.getElementById('msg')
         let regex = /^(http|https):\/\/[a-z0-9\-]+\.[a-z]{2,}[^\s]*$/i;
+
+        popupContainer.hidden = false
 
         if (regex.test(link.value)) {
             msg.innerText = 'Enter a valid link'
@@ -53,10 +60,7 @@ submitButton.addEventListener('click', async (event) => {
         } else {
             msg.innerText = 'Not enough funds on balance'
         }
-    } else {
-        msg.innerText = 'Please fill in all required fields'
     }
-    popupContainer.hidden = false
 })
 
 closeButton.addEventListener('click', function () {
@@ -67,14 +71,10 @@ closeButton.addEventListener('click', function () {
 let quantity = document.getElementById('quantity')
 
 quantity.addEventListener('input', (event) => {
-    if (isNaN(quantity.value) || !Number.isInteger(parseInt(quantity.value)) || parseInt(quantity.value) <= 0) return
-    
     let charge = document.getElementById('charge')
     let index = serviceOptions.selectedIndex;
     
-    charge.disabled = false
-    charge.value = `${(services[index].price * parseInt(quantity.value)).toFixed(2)} €`
-    charge.disabled = true
+    charge.value = `${services[index].price.toFixed(2)} €`
 })
 
 export { setService }

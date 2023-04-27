@@ -3,3 +3,4 @@ main-linux
 main-macos
 main-win.exe
 dist
+electronjs-win32-x64

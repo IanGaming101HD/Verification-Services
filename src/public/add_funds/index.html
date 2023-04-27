@@ -3,8 +3,8 @@
 
 <head>
   <title>Verification Services</title>
-  <meta charset='UTF-8'>
-  <link rel='stylesheet' href='style.css'>
+  <meta charset='UTF-8' />
+  <link rel='stylesheet' href='./style.css'>
 </head>
 
 <body>
@@ -19,13 +19,18 @@
         <li class='logout nav-right'><a href='../logout/index.html'>Logout</a></li>
       </ul>
     </nav>
-    <h1>Verification Services (ONLY SMM PRODIVING)</h1>
-    <div id='popup_container' class='popup_container' hidden>
-      <button id='close_button' class='close_button'>✖</button>
-      <h2 id='popup_name' class='popup_name'>$name</h2>
-      <p id='popup_description' class='popup_description'>$description</p>
-      <button id='order_btn' class='order_btn'>Create order</button>
-    </div>
+    <label for='method'>Method</label>
+    <br>
+    <select id='method' class='form' name='method'>
+      <option>Coinbase Commerce</option>
+      <option>Manual - All Methods (Telegram)</option>
+    </select>
+    <br>
+    <label for='amount'>Amount</label>
+    <br>
+    <input id='amount' name='amount' type='text'>
+    <br>
+    <button id='pay_button' class='pay_button'>Pay</button>
   </div>
   <script type='module' src='./script.js'></script>
 </body>

@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;  
+    box-sizing: border-box;
     user-select: none;
     font-family: Sans-Serif;
     background-color: #000000;
@@ -21,7 +21,7 @@ h2 {
 }
 
 .options {
-  display: flex;
+    display: flex;
 }
 
 .id {
@@ -33,13 +33,12 @@ h2 {
 }
 
 .price {
-    margin-left: 50%;
-    margin-right: 10%;
+    margin-right: 12.5%;
 }
 
 .view_button {
     cursor: pointer;
-    margin-right: 1%;
+    margin-right: 5%;
     margin-top: 6px;
     border: none;
     border-radius: 10px;
@@ -57,18 +56,18 @@ h2 {
 .popup_container {
     background-color: #ffffff;
     border: none;
-    width: 450px;
+    width: 600px;
     padding-bottom: 2%;
     border-radius: 5px;
     position: absolute;
-    left: 28.65%;
+    left: 26%;
     top: 10%;
 }
 
 .close_button {
     cursor: pointer;
     position: absolute;
-    top: 1%;
+    top: 2%;
     font-size: 20px;
     color: #d9e2e8;
     left: 93%;
@@ -88,6 +87,7 @@ h2 {
     font-size: 15px;
     margin-left: 5%;
 }
+
 .order_btn {
     font-weight: bold;
     cursor: pointer;
@@ -100,4 +100,44 @@ h2 {
     color: #ffffff;
     padding-top: 15px;
     padding-bottom: 15px;
+}
+
+nav {
+    margin-left: 4.5%;
+    background-color: transparent;
+    color: #ffffff;
+    margin-top: 2%;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.balance {
+    position: absolute;
+    left: 81%;
+    margin-top: -10px;
+    text-align: center;
+    background-color: #333333;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20%;
+}
+
+.logout {
+    margin-left: 72.5%;
 }
