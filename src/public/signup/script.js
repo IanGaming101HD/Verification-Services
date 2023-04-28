@@ -9,7 +9,7 @@ signupButton.addEventListener('click', async (event) => {
     event.preventDefault();
     const hasAtLeastOneCharacter = (string, array) => array.some((character) => string.includes(character));
     const hasInvalidCharacter = (string, array) => string.split('').some((character) => !array.includes(character));
-    const validUsernameCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '_', '-']
+    const validUsernameCharacters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '_', '-']
     const validPasswordCharacters = {
         lower_case: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
         upper_case: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
@@ -18,41 +18,43 @@ signupButton.addEventListener('click', async (event) => {
     }
 
     let username = document.getElementById('username').value
-    // if (username.length < 8 || username.length > 100 ) {
-    //     return
-    // }
-    // if (await loginSchema.findOne({ username: username.toLowerCase() })) {
-    //     return
-    // }
+    if (username.length < 8 || username.length > 100 ) {
+        return
+    }
+    if (hasInvalidCharacter(username.toLowerCase(), validUsernameCharacters)) {
+        return
+    }
+    if (await electron.findUsername(username.toLowerCase())) {
+        return
+    }
 
-    // if (hasInvalidCharacter(username.toLowerCase, validUsernameCharacters)) {
-    //     return
-    // }
+    let regex = /^([^@]*@){0,1}[^@]*$/
 
     let email = document.getElementById('email').value.toLowerCase()
-    // if (await loginSchema.findOne({ email: email })) {
-    //     return
-    // }
+    if (!email.includes('@') || !regex.test(email) || await electron.findEmail(email.toLowerCase())) {
+        return
+    }
 
     let password = document.getElementById('password').value
-    // if (password.length < 12 || password.length > 100) {
-    //     return
-    // }
-    // if (hasInvalidCharacter(password, Object.values(validPasswordCharacters))) {
-    //     return
-    // }
+    if (password.length < 12 || password.length > 100) {
+        return
+    }
+    // // if (hasInvalidCharacter(password, Object.values(validPasswordCharacters))) {
+    // //     return
+    // // }
     // if (hasAtLeastOneCharacter(password, validPasswordCharacters.lower_case)) {
     //     return
     // }
-    // if (hasAtLeastOneCharacter(password, validPasswordCharacters.upper_case)) {
-    //     return
-    // }
+    // // if (hasAtLeastOneCharacter(password, validPasswordCharacters.upper_case)) {
+    // //     return
+    // // }
     // if (hasAtLeastOneCharacter(password, validPasswordCharacters.numbers)) {
+    //     console.log(9)
     //     return
     // }
-    // if (hasAtLeastOneCharacter(password, validPasswordCharacters.special_characters)) {
-    //     return
-    // }
+    // // if (hasAtLeastOneCharacter(password, validPasswordCharacters.special_characters)) {
+    // //     return
+    // // }
 
     let passwordConfirmation = document.getElementById('confirm_password').value
     if (passwordConfirmation !== password) {

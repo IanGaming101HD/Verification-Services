@@ -5,21 +5,21 @@
   <title>Verification Services</title>
   <meta charset='UTF-8' />
   <link rel='stylesheet' href='./style.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
 
 <body>
+  <nav>
+    <ul>
+      <li><a href='../order/index.html'>Order</a></li>
+      <li><a href='../menu/index.html'>Services</a></li>
+      <li><a href='../orders/index.html'>Orders</a></li>
+      <li><a href='../add_funds/index.html'>Add funds</a></li>
+      <li class='balance nav-right'><span id='balance'></span></li>
+      <li class='logout nav-right'><a href='../logout/index.html'>Logout</a></li>
+    </ul>
+  </nav>
   <div class='container'>
-    <nav>
-      <ul>
-        <li><a href='../order/index.html'>Order</a></li>
-        <li><a href='../menu/index.html'>Services</a></li>
-        <li><a href='../orders/index.html'>Orders</a></li>
-        <li><a href='../add_funds/index.html'>Add funds</a></li>
-        <li><a href='../add_funds/index.html'>Add funds</a></li>
-        <li class='balance nav-right'><span id='balance'>$balance</span></li>
-        <li class='logout nav-right'><a href='../logout/index.html'>Logout</a></li>
-      </ul>
-    </nav>
     <div class='buttons'>
       <button class='grey_button'>All</button>
       <button class='grey_button'>Pending</button>
@@ -31,18 +31,18 @@
     </div>
     <div class='search_container'>
       <input class='search' type='search' placeholder='Search'>
-      <button class='search_button'>🔍</button>
+      <button class='search_button'><i class='fa fa-search'></i></button>
     </div>
     <div class='categories_container'>
-      <span>ID</span>
-      <span>Date</span>
-      <span>Link</span>
-      <span>Charge</span>
-      <span>Start count</span>
-      <span>Quantity</span>
-      <span>Service</span>
-      <span>Status</span>
-      <span>Remains</span>
+      <span class='category'>ID</span>
+      <span class='category'>Date</span>
+      <span class='category'>Link</span>
+      <span class='category'>Charge</span>
+      <span class='category'>Start count</span>
+      <span class='category'>Quantity</span>
+      <span class='category'>Service</span>
+      <span class='category'>Status</span>
+      <span class='category'>Remains</span>
     </div>
   </div>
   <script type='module' src='./script.js'></script>

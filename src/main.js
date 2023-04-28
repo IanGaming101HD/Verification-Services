@@ -3,7 +3,7 @@ const {
   app,
   BrowserWindow,
   ipcMain,
-  clipboard
+  shell
 } = require('electron');
 const fs = require('fs')
 const mongoose = require('mongoose');
@@ -40,16 +40,17 @@ let createWindow = () => {
     })
     win.loadFile('./src/public/menu/index.html')
   }
-  ipcMain.handle('changeWindowSize', (event, width, height) => win.setSize(width, height))
+  ipcMain.handle('changeWindowSize', (event, width, height) => win.setBounds({ width: width, height: height }))
+  ipcMain.handle('openInBrowser', (event, url) => shell.openExternal(url))
   ipcMain.handle('centreWindow', (event, width, height) => win.center())
-  ipcMain.handle('copyToClipboard', (event, value) => clipboard.writeText(value))
   ipcMain.handle('readFileSync', (event, path, options) => fs.readFileSync(path, options))
   ipcMain.handle('writeFileSync', (event, path, data) => fs.writeFileSync(path, data))
   ipcMain.handle('createLogin', async (event, username, email, password) => {
     await loginSchema.create({
       username: username,
       email: email,
-      password: password
+      password: password,
+      balance: 0
     })
   })
   ipcMain.handle('findLogin', async (event, firstInput, secondInput) => {
@@ -66,6 +67,27 @@ let createWindow = () => {
       })
       if (data) return data
     }
+    return null
+  })
+  ipcMain.handle('findUsername', async (event, username) => {
+    let data = await loginSchema.findOne({
+      username: username
+    })
+    if (data) return true
+    return false
+  })
+  ipcMain.handle('findEmail', async (event, email) => {
+    let data = await loginSchema.findOne({
+      email: email
+    })
+    if (data) return true
+    return false
+  })
+  ipcMain.handle('getBalance', async (event) => {
+    let data = await loginSchema.findOne({
+      username: session.username
+    })
+    if (data) return data.balance
     return null
   })
   ipcMain.handle('services', () => services)

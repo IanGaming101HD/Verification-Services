@@ -1,3 +1,7 @@
+const balance = document.getElementById('balance')
+
+balance.innerText = `${(await electron.getBalance() ? await electron.getBalance() : 0).toFixed(2)} €`
+
 const container = document.getElementsByClassName('container')[0]
 const services = await electron.services
 

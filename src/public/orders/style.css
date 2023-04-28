@@ -9,8 +9,8 @@ body {
 }
 
 .container {
-    margin-left: 50%;
-    margin-top: 50%;
+    margin-left: 10%;
+    margin-top: 10%;
 }
 
 .buttons {
@@ -34,6 +34,7 @@ button {
 }
 
 .search_button {
+    color: #00ff00;
     margin-top: 10%;
     background-color: transparent;
     border: none;
@@ -46,10 +47,10 @@ button {
 .search {
     padding: 5%;
     padding-left: 10px;
-    padding-right: 250%;
+    padding-right: 265%;
     margin-top: 10%;
     border: none;
-    border-radius: 10%;
+    border-radius: 10px;
     color: #6c757d;
     background-color: #2b2b2b;
     margin-right: 5%;
@@ -60,20 +61,21 @@ button {
     display: flex;
 }
 
-span {
-    margin-right: 10px;
+.category {
+    margin-right: 25%;
     color: #00ff00;
 }
 
 nav {
+    margin-top: 5%;
     margin-left: 4.5%;
     background-color: transparent;
     color: #ffffff;
-    margin-top: 2%;
 }
 
 nav ul {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -86,4 +88,22 @@ nav li {
 nav a {
     color: #ffffff;
     text-decoration: none;
+}
+
+.balance {
+    margin-top: -0.6%;
+    position: absolute;
+    right: 7.5%;
+    text-align: center;
+    background-color: #333333;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20%;
+}
+
+.logout {
+    position: absolute;
+    left: 92.5%;
 }

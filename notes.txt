@@ -1,0 +1,3 @@
+fix terms, resets form in signup
+
+signup glitching out mongodb creates multiple accounts

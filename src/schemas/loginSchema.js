@@ -12,7 +12,12 @@ const loginSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    balance: {
+        type: Number,
+        required: true
+    },
+    
 })
 
 module.exports = mongoose.model('login', loginSchema)

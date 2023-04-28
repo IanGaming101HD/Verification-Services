@@ -111,14 +111,15 @@ body {
 }
 
 nav {
+    margin-top: 5%;
     margin-left: 4.5%;
     background-color: transparent;
     color: #ffffff;
-    margin-top: 2%;
 }
 
 nav ul {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -131,4 +132,22 @@ nav li {
 nav a {
     color: #ffffff;
     text-decoration: none;
+}
+
+.balance {
+    margin-top: -0.6%;
+    position: absolute;
+    right: 7.5%;
+    text-align: center;
+    background-color: #333333;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 20%;
+}
+
+.logout {
+    position: absolute;
+    left: 92.5%;
 }
