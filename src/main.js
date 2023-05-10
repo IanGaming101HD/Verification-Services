@@ -43,7 +43,7 @@ let createWindow = () => {
   ipcMain.handle('changeWindowSize', (event, width, height) => win.setBounds({ width: width, height: height }))
   ipcMain.handle('openInBrowser', (event, url) => shell.openExternal(url))
   ipcMain.handle('centreWindow', (event, width, height) => win.center())
-  ipcMain.handle('readFileSync', (event, path, options) => fs.readFileSync(path, options))
+  ipcMain.handle('require', (event, path) => require(path))
   ipcMain.handle('writeFileSync', (event, path, data) => fs.writeFileSync(path, data))
   ipcMain.handle('createLogin', async (event, username, email, password) => {
     await loginSchema.create({

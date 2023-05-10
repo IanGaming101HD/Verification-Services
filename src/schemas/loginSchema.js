@@ -16,7 +16,7 @@ const loginSchema = mongoose.Schema({
     balance: {
         type: Number,
         required: true
-    },
+    }
     
 })
 

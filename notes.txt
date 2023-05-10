@@ -1,3 +1,5 @@
 fix terms, resets form in signup
 
-signup glitching out mongodb creates multiple accounts
+add fill in all fields, alert msg
+
+visual for add_funds and change links for coinbase, payment methods

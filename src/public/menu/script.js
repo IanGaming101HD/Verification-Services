@@ -76,5 +76,8 @@ orderButton.addEventListener('click', async function () {
     location.href = '../order/index.html'
     await electron.centreWindow()
 
+    console.log(1)
+    // const { setService } = await electron.require('../order/script.js')
     setService(7)
+    console.log(2)
 })

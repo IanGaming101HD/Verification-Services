@@ -23,8 +23,11 @@ const submitButton = document.getElementById('submit_btn')
 const closeButton = document.getElementById('close_button')
 
 function setService(index) {
+    let service = document.getElementById('service')
     let description = document.getElementById('description')
     let quantity = document.getElementById('quantity')
+
+    service.selectedIndex = index
 
     description.disabled = false
     description.value = services[index].description
@@ -33,6 +36,12 @@ function setService(index) {
     quantity.value = ''
 }
 setService(0)
+
+try {
+    module.exports = { setService: setService }
+} catch (err) {
+    console.log('hi')
+}
 
 serviceOptions.addEventListener('change', function () {
     let index = serviceOptions.selectedIndex;
