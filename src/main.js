@@ -106,7 +106,6 @@ app.once('ready', () => {
 })
 
 app.on('window-all-closed', () => {
-  console.log('hi')
   if (process.platform !== 'darwin') {
     app.quit()
   }
